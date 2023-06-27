@@ -1,0 +1,303 @@
+/* Para comentários usar " /* */ ou //"
+/* Tipos de dados:
+
+Int: aceita números inteiros: exemplo:-32767 até 32767
+Dígitos: 6
+Tmanaho:4
+
+Char:
+aceita: letras, caracteres especiais e números.
+Tamanho: 1 byte
+
+Double: aceita números decimais: -1,7x10(-308) até 1,7x10(308)
+Dígitos: 10
+Tamanho: 8 bytes
+
+Variáveis:
+-Espaços de memória onde os dados são armazenados.
+-Posuem tipos difinidos: int, char, etc.
+-Cada tipo tem a capacidade específica de armazenar determinado tipo de dado.
+
+Exemplo de declaração de váriavel:
+
+main() {
+    int numero1, numero2;
+    char letra1, letra2;
+}
+
+Nomes de variáveis não devem:
+- Iniciar com números. Ex: 45unipar
+- Ter caracteres especiais. Ex: número (acentos).
+- Ter espaços. Ex.: número do telefone.
+- devem ser significativos. Evitar x,y,z.
+-Alguns compiladores trazem "lixo", não zeram as variáveis. ou seja se apenas declara-las elas irao
+ retornar um valor aleatório. Por isso colocar a=0 para saber que a variável iniciou em 0.
+
+C é case-sensitive (qtde <> Qtde).
+
+%d = significa valor de. (em formato decimal).
+
+
+Escopo (onde minha variável é válida):
+
+- Válida no bloco:declarada dentro do bloco da função;
+- Global: declarada fora de todos os blocos;
+- Local: declarada dentro de uma única função.
+
+Palavras reservadas:
+-include(diretiva para o compilador);
+-main(função);
+-printf (função da biblioteca stdio.h).
+
+Entrada e daída de dados:
+-Biblioteca stdio.h -> include;
+-Printf-> saída de dados;
+-Scanf -> entrada de dados.
+
+Vetores:
+-Variáveis indexadas
+-Possuem N posições -> int x[5];
+-Primeira posição é a 0 (zero);
+-Última posição seria N - 1;
+-No exemplo acima temos de x[0] até x[4];
+-Não faz controle de acesso ao vetor; (se colocar x[5]= 8, ele pode usar o espaço de outra variável para armazenar 8, cuidado!)
+
+Strings
+-Conjunto de caracteres
+-Declaradas como vetores de char -> char nome[7];
+-Sempre declarar com um espaço adicional. No exemplo acima só pode armazenar strings com no máximo 6 caracteres.
+-Utiliza o \0 para determinar o final da string. (vai ler o nome até aparecer o nulo que é o \0)
+       unipar\o
+       012345 6
+
+
+dica útil -> gets
+-Alternativa para o scanf quando utiliza-se strings.
+-scanf precisa de uma formatação especial para ler strings com espaços.
+-gets(nome_da_variavel_sem_&);
+    Ex:
+    Scanf("__", &____);
+    Gets (_____);
+
+Operadores:
+
++Aritméticos
+- = -> atribuição de valores;
+- + -> soma;
+- - -> subtração
+- * -> multiplicação
+- / -> divisão
+- % -> resto de uma divisão
+
++Relacionais
+- == -> igualdade   (a = b -> estou colocando o valor de b dentro de a)
+- != -> diferença
+- <= -> menor ou igual
+- >= -> maior ou igual
+- < -> menor
+- > -> maior
+
++Aritméticos de atribuição
+- += -> x += y -> x = x + y
+- -+ -> x -= y -> x = x - y
+- *= -> x *= y -> x = x * y
+- /= -> x /= y -> x = x / y
+- %= -> x %= y -> x = x % y
+- ++ -> x++    -> x = x + 1   (y = ++x; Soma antes de atribuir)
+- -- -> x--    -> x = x - 1   (y = x)
+
++Lógicos
+-& e && -> and  (&& -> ele só faz a tabela verdade das que tem possibilidade de dar verdadeiro)
+-| e || -> or
+-!      -> not
+
++Condicional ternário / If ternário
+
+If (x > 0         |
+    y = 5;        |
+                  |  ->  y = (x > 0) ? 5 : 10;
+else              |
+                  |
+    y = 10;       |
+
+
+Instruções condicionais
+
++ Simples (if)
+
+    if (a==10){
+        printf ("a é igual a 10");
+    }
+
++ Compostas (if-else)
+
+    if(a == 10) {
+    printf ("a é igual a 10");
+    } elsse {
+        printf("a é diferente de 10");
+    }
+
++ Múltipla escolha (swith-case)
+
+    if (a==1) {
+        printf("a é igual a 1");
+    } else if (a==2) {
+        printf("a é igual a 2");
+    } else if (a==3) {
+        printf("a é igual a 3");
+    } else if (a==4) {
+        printf("a é igual a 4");
+    } else {
+        printf("valor inexistente");
+    }
+
+            ou:
+
+    switch (a) {
+    case 1: printf("a é igual a 1");
+        break;
+    case 2: printf("a é igual a 2");
+        break;
+    case 3: printf("a é igual a 3");
+        break;
+    case 4: printf("a é igual a 4");
+        break;
+    default: printf("valor inexistente");
+    }
+
+- Utilizada para comparação de números.
+- Apenas comparação de igualdade.
+- Pode-se utilizar char também:
+
+    char a = '2' -> case '2'
+
+Instruções de repetição
+
++For
+
+    for (int a = 0; a <= 9; a++) {
+        printf("%d\n", a);
+    }
+
++ while
+
+    while (opcao != 'S' or opcao != 's') {
+        print("%d\n", a);
+    }
+
+
++ do-while
+-Semelhante ao while.
+-Executa o corpo do laço pelo menos uma vez.
+-Efetua o teste no final.
+
+
+Vetores (arrays)
+-conjunto de espaços de memória com o mesmo nome e mesmo tipo de variavel.
+-também chamado de variavel composta homogênea unidimensional.
+-a distinção é efetuada por um indice.
+-ocupam espaços contínuos de memória.
+
+
+-int numero [5];
+
+      numero -> [10|20|30|40|50]
+                  0  1  2  3  4
+
+Matrizes
+-segue a mesma lógica dos vetores
+-bidimensional (linhas e colunas)
+- int numero [3][5];
+
+Estruturas
+-vetores e matrizes trabalham com dados homogêneos, ou seja, iguais. Só inteiros ou só float, etc.
+-Estruturas (struct) são a forma de se implementar TAD (Tipos Abstratos de Dados)
+-Possibilita assim termos agrupamentos de tipos de váriaveis diferentes
+-em Pascal utiliza-se o nome Register (Registro).
+-para definirmos uma estrtutura utilizamos a palavra reservada "struct"
+-depois de definida a estrutura, basta declarar variáveis do seu tipo, como fazemos com int, char, float, double, etc.
+-pode-se declarar um vetor ou uma matriz que tenha como tipo uma estrutura
+
+                                   Produto x[10]
+                                           y[3][9]
+
+funções
+-melhoram a organização do código
+-auxiliam a evitar a repetição de código
+-facilitam a manutenção do código
+                 /> se colocar "void" ao invés de int ele não retornará nada
+        exemplo: int maior(int n1, int n2) {
+            if (n1 > n2){
+                return n1;
+            } else {
+                return n2;
+                }
+            }
+
+Ponteiro
+-são variáveis que não armazenam um conteúdo específico, mas sim um endereço de memória
+-ao declarar a variável,  buscado dentro da memória Ram, no espaço destinado a memória do programa pelo primeiro endereço disponível
+que é dado em hexadecimal, e alocado esta variável.
+
+
+Sistemas numéricos
+-os dados manipulados por um computador são armazenados em memória secundária durante a execução do programa
+-estes dados, em última instancia são armazenados em binário (0s e 1s)
+-porém a representação desta forma é complicada
+
+aula 2
+
+over flow, quando o número ultrapassa, transborda o número de bytes, um int por exemplo tem (4Bytes), o que pode
+representar números de -2.147.483.648 até 2.147.483.648
+-se colocarmos ++ em um número de 2.147.483.648 ele voltar ao menor número negativo o que gera um over flow.
+
+-Diferença entre o 1 (número) e o '1' (caracter)
+-o 1 (número) é tratado como o int, em binário
+-o '1' (caracter) é armazenado seguindo a tabela ASCII.
+
+ALOCAÇÃO DE VETORES
+Endereços contínuos (adjacentes) na memória.
+-int x[5];  -> lembrando que o int ocupa 4 bytes.
+
+ou seja, seria necessário pelo menos 20 bytes livres para representar esse vetor.  (4 x 5)
+
+ALOZAÇÃO DE VETORES (STRINGS)
+-Vetores de char terminados em \0, então o vetor precisa ter sobrando uma posição, e cada posição é uma letra.
+
+LISTA LINEARES
+-é um vetor onde os dados apresentam o mesmo tipo e são mantidos em uma sequência (ordem);
+-esta ordem pode apresentar os dados de forma contínua na memória, porém com uma estrutura de controle que
+os deixe logicamente sequencializados;
+-podemos citar como exemplos uma fila em um banco, ou ainda, um banco que utilize o sistema de senhas.
+-denta forma, podem ser:
+   -sequenciais ou contiguas -> int x[10]; -> ficam em endereços de memórias adjacentes (sequenciais)
+   -encadeadas -> onde a sequência é mantida através de uma estrutura de controle. (alguém indica o início (endereço de memória))
+   -após isso o elemento aponta o proximo elemento.
+
+LISTA ENCADEADAS
+-Ocupam espaços de memória conforme são adicionados novos nós. (novos elementos);
+-Otimizam a alocação de memória;
+-Ocupam espaços alatórios na memória;
+-Cada nó é responsável por fazer o encadeamento para o próximo nó
+
+   | Conteúdo do nó | Ponteiro para o próximo nó |
+
+   struct elemento{
+    char conteudo;
+    elemento*proximo;
+    };
+
+-Inicialização da lista;
+   -Variável que indica o primeiro nó (inicio) é inicializada com NULL.
+   -Caso queira controlar o número de elementos, criar uma variável (int numeroElementos = 0);
+
+      elemento*inicio=NULL;
+      int numeroElementos = 0;
+
+
+
+
+
+
+
+*/

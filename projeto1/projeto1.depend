@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1685326157 source:/home/thais/Documents/projeto1/main.cpp
+	<stdio.h>
+	<locale.h>
+
